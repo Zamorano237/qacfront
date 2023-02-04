@@ -41,10 +41,6 @@ const Header = () => {
 
   const handleLogin = async () => {
     if (!user.name) {
-      toast.success('Connexion à Google', {
-        position: 'bottom-left',
-        autoClose: 10000,
-      });
       const {
         user: { refreshToken, providerData },
       } = await signInWithPopup(firebaseAuth, provider);
