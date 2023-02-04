@@ -41,6 +41,10 @@ const Header = () => {
 
   const handleLogin = async () => {
     if (!user.name) {
+      toast.success('Connexion de Google', {
+        position: 'bottom-left',
+        autoClose: 5000,
+      });
       const {
         user: { refreshToken, providerData },
       } = await signInWithPopup(firebaseAuth, provider);
@@ -85,7 +89,7 @@ const Header = () => {
     setIsLogin(false);
     toast.error('Deconnexion de Google', {
       position: 'top-center',
-      autoClose: 5000,
+      autoClose: 2000,
     });
   };
 
