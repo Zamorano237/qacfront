@@ -14,7 +14,10 @@ import {
   MdLogout,
   MdAddCircleOutline,
   MdVerified,
+  MdLogin,
 } from 'react-icons/md';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
@@ -45,6 +48,7 @@ const Header = () => {
         position: 'bottom-left',
         autoClose: 5000,
       });
+      setIsLogin(false);
       const {
         user: { refreshToken, providerData },
       } = await signInWithPopup(firebaseAuth, provider);
@@ -73,6 +77,10 @@ const Header = () => {
     } else {
       setIsLogin((preve) => !preve);
     }
+  };
+
+  const visibleMenu = () => {
+    setIsLogin((preve) => !preve);
   };
 
   const handleLogout = () => {
@@ -269,7 +277,6 @@ const Header = () => {
         {user.email && (
           <div className='flex items-center text-red-600 text-sm'>
             <MdVerified />
-            <p className='px-2 mb-0'>{user.name}</p>
             {['watboparfait@gmail.com', 'gkamdem93@gmail.com'].includes(
               user.email
             ) && (
@@ -295,22 +302,22 @@ const Header = () => {
               </div>
             </Link>
           </motion.div>
-          <motion.div
+          <motion.button
+            onClick={visibleMenu}
             whileTap={{ scale: 0.8 }}
-            onClick={handleLogin}
-            className='w-8 h-8 bg-black rounded-full flex justify-center items-center cursor-pointer drop-shadow-xl shadow-lg overflow-hidden'>
-            {user.img ? (
-              <img src={user.img} className='w-full h-full' alt='profil' />
+            className='w-8 h-8  flex justify-center items-center cursor-pointer'>
+            {isLogin ? (
+              <CloseIcon sx={{ fontSize: 40 }} />
             ) : (
-              <MdAccountCircle className='text-white w-full h-full' />
+              <MenuIcon sx={{ fontSize: 40 }} />
             )}
-          </motion.div>
+          </motion.button>
           {isLogin && (
             <motion.div
               initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.6 }}
-              className='absolute right-0 w-screen z-40  bg-white shadow-lg top-12 px-4 py-6 rounded '>
+              className='absolute right-0  w-screen z-40  bg-white shadow-lg top-9 px-4 py-6 rounded '>
               <div className='arrowShow'></div>
               <div className='w-full'>
                 <ul className='flex flex-col  h-full  '>
@@ -363,12 +370,21 @@ const Header = () => {
                 )}
               </div>
               <div className='rounded overflow-hidden'>
-                <div
-                  onClick={handleLogout}
-                  className='whitespace-nowrap flex bg-red-600 text-white hover:bg-red-500 py-1 px-3 items-center w-full gap-3'>
-                  Logout ({user.name && user.name.split(' ')[0]})
-                  <MdLogout className='ml-auto ' />
-                </div>
+                {user.name ? (
+                  <div
+                    onClick={handleLogout}
+                    className='whitespace-nowrap flex bg-red-600 text-white hover:bg-red-500 py-1 px-3 items-center w-full gap-3'>
+                    Logout ({user.name && user.name.split(' ')[0]})
+                    <MdLogout className='ml-auto ' />
+                  </div>
+                ) : (
+                  <div
+                    onClick={handleLogin}
+                    className='whitespace-nowrap flex bg-blue-600 text-white hover:bg-red-500 py-1 px-3 items-center w-full gap-3'>
+                    Login
+                    <MdLogin className='ml-auto ' />
+                  </div>
+                )}
               </div>
             </motion.div>
           )}

@@ -26,7 +26,7 @@ const PayButton = ({ cartItems }) => {
         'Vous serez dirigé vers stripe pour effectuer le paiement...',
         {
           position: 'top-center',
-          autoClose: 10000,
+          autoClose: 20000,
         }
       );
     } else {
