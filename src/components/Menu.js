@@ -8,7 +8,8 @@ import { useSelector } from 'react-redux';
 import CardFilter from './cardFilter';
 import RenderFilter from './renderFilter';
 import { FaFilter } from 'react-icons/fa';
-import Loading from '../utils/Loading';
+import Slider from 'react-slick';
+import Skeleton from '@mui/material/Skeleton';
 
 const Menu = ({
   heading = 'Catégories de Produits',
@@ -36,6 +37,34 @@ const Menu = ({
 
   const filterByProduct = (by) => {
     setFilterBy(by.toLowerCase());
+  };
+  const settings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    speed: 1000,
+    swipeToSlide: true,
+    autoplaySpeed: 10000,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1.2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -68,29 +97,36 @@ const Menu = ({
           </select>
         </div>
       </div>
-      <div className='my-6 flex flex-wrap gap-4 w-100 m-auto justify-center md:justify-center'>
-        {productLoading ? (
-          <div className='bg-slate-100 w-full p-16 flex justify-center items-end'>
-            <Loading />
-          </div>
-        ) : (
-          filterData.map((el) => (
-            <div>
-              <RenderFilter
-                key={el.id + 'menu'}
-                id={el.id}
-                name={el.title}
-                img={el.imageURL}
-                title={el.title}
-                price={el.price}
-                rating={el.rating}
-                download={el.download}
-              />
-            </div>
-          ))
-        )}
-      </div>
-      <div></div>
+      <Slider {...settings}>
+        {productLoading
+          ? new Array(7).fill(null).map((el, index) => {
+              return (
+                <div
+                  key={index}
+                  className='min-h-[460px] min-w-[250px] m-2 my-6  flex justify-center flex-col items-center'>
+                  <Skeleton variant='rectangular' width='90%' height={204} />
+                  <Skeleton width='90%' height={40} />
+                  <Skeleton width='90%' height={60} />
+                  <Skeleton width='85%' height={50} />
+                  <Skeleton width='90%' height={40} />
+                </div>
+              );
+            })
+          : filterData.map((el) => (
+              <div>
+                <RenderFilter
+                  key={el.id + 'menu'}
+                  id={el.id}
+                  name={el.title}
+                  img={el.imageURL}
+                  title={el.title}
+                  price={el.price}
+                  rating={el.rating}
+                  download={el.download}
+                />
+              </div>
+            ))}
+      </Slider>
     </div>
   );
 };

@@ -34,7 +34,7 @@ const Home = () => {
         </p>
 
         <p className='text-base text-textColor text md:text-left md:w-[80%]'>
-          QHSE Académie en Consulting est votre source fiable pour tout ce dont
+          QHSE ACADEMIE AND CONSULTING est votre source fiable pour tout ce dont
           les professionnels du secteur QHSE ont besoin pour améliorer en
           continu leur performance. Nous offrons une gamme complète de produits,
           y compris des tableaux de bord, des kits documentaires, des

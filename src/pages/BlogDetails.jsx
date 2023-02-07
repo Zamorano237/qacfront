@@ -14,11 +14,13 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import AddAlertIcon from '@mui/icons-material/AddAlert';
 import ShareIcon from '@mui/icons-material/Share';
 import { Zoom } from 'react-awesome-reveal';
 import BlogList from '../components/UI/BlogList';
 import Skeleton from '@mui/material/Skeleton';
 import '../styles/blog-details.css';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
 
 const BlogDetails = () => {
   const postItem = useSelector((state) => state.postItem.postItem);
@@ -40,6 +42,10 @@ const BlogDetails = () => {
   const [text, setText] = useState('');
   const { slug } = useParams();
   let blog;
+
+  function handleClick(event) {
+    event.preventDefault();
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -63,8 +69,26 @@ const BlogDetails = () => {
     content = (
       <>
         <Helmet title={blog.title}>
-          <section className='mt-12 pt-5 '>
-            <Container>
+          <section className='mt-[15px] lg:mt-12 pt-5 relative '>
+            <Container className='relative'>
+              <div role='presentation' onClick={handleClick} className='mb-1'>
+                <Breadcrumbs aria-label='breadcrumb'>
+                  <Link
+                    to={'/blogs'}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }>
+                    Blogs
+                  </Link>
+                  <Link
+                    to={'/blogs'}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }>
+                    {blog.category}
+                  </Link>
+                </Breadcrumbs>
+              </div>
               <Row>
                 <Col lg='8' md='8'>
                   <div className='blog__details'>
@@ -143,13 +167,18 @@ const BlogDetails = () => {
                 </Col>
 
                 <Col lg='4' md='4'>
-                  <div className='relative'>
-                    <div className='recent__post mb-4 relative sticky top-0'>
+                  <div className='sticky left-0 top-0 '>
+                    <div className='recent__post mb-4  top-0'>
                       <h5 className=' fw-bold'>Postes récents</h5>
                     </div>
                     {blogData.slice(0, 5).map((item) => (
-                      <div className='recent__blog-post mb-4' key={item.id}>
-                        <div className='recent__blog-item d-flex gap-3'>
+                      <div
+                        className='recent__blog-post mb-4'
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: 'smooth' })
+                        }
+                        key={item.id}>
+                        <div className='recent__blog-item d-flex gap-3 '>
                           <img
                             src={item.imageURL}
                             alt=''
@@ -181,12 +210,24 @@ const BlogDetails = () => {
                         variant='text'
                         color='error'
                         startIcon={<YouTubeIcon />}>
-                        Youtube
+                        <a
+                          href='https://www.youtube.com/@qhseacademie1043'
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='normal-case'>
+                          Youtube
+                        </a>
                       </Button>
                     </div>
                     <div className='mb-2'>
                       <Button variant='text' startIcon={<FacebookIcon />}>
-                        Facebook
+                        <a
+                          href='https://www.facebook.com/qhse.academie'
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='capitalize'>
+                          Facebook
+                        </a>
                       </Button>
                     </div>
                     <div className='mb-2'>
@@ -194,12 +235,24 @@ const BlogDetails = () => {
                         variant='text'
                         color='success'
                         startIcon={<WhatsAppIcon />}>
-                        Whattsap
+                        <a
+                          href='http://wa.me/+237694289819'
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='normal-case'>
+                          WhattsApp
+                        </a>
                       </Button>
                     </div>
                     <div className='mb-2'>
                       <Button variant='text' startIcon={<LinkedInIcon />}>
-                        Linked
+                        <a
+                          href='https://www.linkedin.com/company/qhse-academie-and-consulting/'
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='capitalize'>
+                          Linked
+                        </a>
                       </Button>
                     </div>
                     <div className='recent__post mb-4'>
@@ -207,7 +260,7 @@ const BlogDetails = () => {
                         Abonnez-Vous{' '}
                         <Button
                           variant='text'
-                          startIcon={<ShareIcon />}></Button>
+                          startIcon={<AddAlertIcon />}></Button>
                       </h5>
                       <img
                         src='https://www.officiel-prevention.com/uploads/bannieres/7/5f919450432f8.png'

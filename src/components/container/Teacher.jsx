@@ -29,7 +29,7 @@ const Teacher = () => {
                     words={[
                       'ingénieur  QHSE.',
                       'Développeur Full Stack JS.',
-                      'Consultant-Formateur',
+                      'Consultant-Formateur.',
                     ]}
                     loop={0}
                     typeSpeed={50}
@@ -77,9 +77,10 @@ const Teacher = () => {
                   className='demotext4 shadow-transparent'>
                   <Typewriter
                     words={[
-                      'ingénieur  QHSE.',
+                      'Ingénieur  QHSE.',
                       'Manageur RSE et DD.',
-                      'Consultant-Formateur',
+                      'Consultant-Formateur.',
+                      'Développeur Front-end.',
                     ]}
                     loop={0}
                     typeSpeed={50}

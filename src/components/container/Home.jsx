@@ -25,20 +25,20 @@ const Home = () => {
     visible: { y: 0, opacity: 1 },
   };
   return (
-    <div className='section' id='home'>
+    <div className='section' id='home '>
       <div className='md:flex items-center justify-center'>
         <div>
           <Slide direction='left'>
-            <div className='font-bold text-XL  mb-4'>
+            <div className='font-bold text-XL  mb-4 pl-3'>
               {' '}
               Votre partenaire pour une formation en ligne de Qualité
             </div>
-            <div className='sm:text-[2rem] text-[1.5rem] font-bold'>
+            <div className='sm:text-[2rem] text-[1.5rem]  pl-3 font-bold'>
               Révolutionnez votre façon d'apprendre en ligne
             </div>
-            <p className='text-xl leading-7 text-gray max-w-xl'>
+            <p className='text-xl leading-7 pl-3 text-gray max-w-xl'>
               Rejoignez les milliers de professionnels et managers qui ont fait
-              de QHSE ACADEMIE en CONSULTING leur meilleur partenaire pour une
+              de QHSE ACADEMIE AND CONSULTING leur meilleur partenaire pour une
               formation en ligne et en présentiel de qualité supérieure.
             </p>
           </Slide>

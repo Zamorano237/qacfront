@@ -63,7 +63,7 @@ const Blog = () => {
                 <br />
               </Zoom>
             </Col>
-            <h2 className=' capitalize text-lg md:text-2xl  font-semibold before:rounded-lg relative before:absolute before:-bottom-2 before:content before:left-0 before:w-32 before:h-1 before:bg-red-500 transition-all ease-in-out duration-100'>
+            <h2 className=' capitalize text-lg md:text-2xl  font-semibold before:rounded-lg relative before:absolute before:-bottom-2 before:content before:left-3 before:w-32 before:h-1 before:bg-red-500 transition-all ease-in-out duration-100'>
               Santé et Sécurité au travail
             </h2>
             <div className='relative flex-row m-3 lg:m-6 md:flex justify-between top-0 bottom-0 text-2xl items-center'></div>
@@ -92,7 +92,7 @@ const Blog = () => {
               </Slider>
             </Slide>
             <div className='relative flex-row m-3 lg:m-6 md:flex justify-between top-0 bottom-0 text-2xl items-center'></div>
-            <h2 className=' capitalize text-lg md:text-2xl  font-semibold before:rounded-lg relative before:absolute before:-bottom-2 before:content before:left-0 before:w-32 before:h-1 before:bg-red-500 transition-all ease-in-out duration-100 mb-8'>
+            <h2 className=' capitalize text-lg md:text-2xl  font-semibold before:rounded-lg relative before:absolute before:-bottom-2 before:content before:left-3 before:w-32 before:h-1 before:bg-red-500 transition-all ease-in-out duration-100 mb-8'>
               Environnement
             </h2>
             <Slide direction='left'>
@@ -120,7 +120,7 @@ const Blog = () => {
               </Slider>
             </Slide>
             <div className='relative flex-row m-3 lg:m-6 left-25 md:flex justify-between top-0 bottom-0 text-2xl items-center'></div>
-            <h2 className=' mb-8 capitalize text-lg md:text-2xl  font-semibold before:rounded-lg relative before:absolute before:-bottom-2 before:content before:left-0 before:w-32 before:h-1 before:bg-red-500 transition-all ease-in-out duration-100'>
+            <h2 className=' mb-8 capitalize text-lg md:text-2xl  font-semibold before:rounded-lg relative before:absolute before:-bottom-2 before:content before:left-3 before:w-20 before:h-1 before:bg-red-500 transition-all ease-in-out duration-100'>
               RSE et DD
             </h2>
             <Slide direction='left'>

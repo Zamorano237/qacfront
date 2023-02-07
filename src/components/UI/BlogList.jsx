@@ -76,7 +76,10 @@ const BlogItem = ({ item }) => {
         style={{ height: '220px' }}
       />
       <div className='blog__info p-3'>
-        <Link to={`/blogs/${id}`} className='blog__title'>
+        <Link
+          to={`/blogs/${id}`}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className='blog__title'>
           {title}
         </Link>
         <p className='section__description mt-3'>
@@ -84,7 +87,10 @@ const BlogItem = ({ item }) => {
           ...
         </p>
 
-        <Link to={`/blogs/${id}`} className='read__more'>
+        <Link
+          to={`/blogs/${id}`}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className='read__more'>
           Read More
         </Link>
 

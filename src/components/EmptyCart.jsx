@@ -10,7 +10,7 @@ const EmptyCart = () => {
         <img src={EmptyImage} className='h-full' alt='empty' />
       </div>
       <h2 className='text-slate-600 font-semibold text-3xl my-2'>
-        You Cart Empty
+        Votre panier est vide
       </h2>
     </div>
   );

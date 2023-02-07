@@ -5,17 +5,31 @@ import { Zoom } from 'react-awesome-reveal';
 import emailjs from '@emailjs/browser';
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
+import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 const Contact = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [text, setText] = useState('');
+  const [number, setNumber] = useState('');
+
   const sendEmail = (e) => {
     e.preventDefault();
-    alert('send mail');
+    toast.success("Votre message vient d'être envoyer.", {
+      position: 'top-center',
+      autoClose: 3000,
+    });
     emailjs.sendForm(
       'service_pr2pf6c',
       'template_9wpq537',
       e.target,
       'R_saCWt0_6uN7cVSx'
     );
+    setName('');
+    setEmail('');
+    setText('');
+    setNumber('');
   };
 
   return (
@@ -66,7 +80,9 @@ const Contact = () => {
               </div>
               <div>
                 <h2 className='text-slate-200 text-xs'>Name :</h2>
-                <p className='text-white text-xs'>QHSE ACADEMIE</p>
+                <p className='text-white text-xs'>
+                  QHSE ACADEMIE AND CONSULTING
+                </p>
               </div>
             </div>
 
@@ -86,7 +102,9 @@ const Contact = () => {
               </div>
               <div>
                 <h2 className='text-slate-200 text-xs'>Email :</h2>
-                <p className='text-white text-xs'>contact@qhseacademie.com</p>
+                <p className='text-white text-xs'>
+                  contact@qhseacademieandconsulting.com
+                </p>
               </div>
             </div>
 
@@ -119,7 +137,7 @@ const Contact = () => {
               </div>
               <div>
                 <h2 className='text-slate-200 text-xs'>Address :</h2>
-                <p className='text-white mb-0 text-xs'>Cameroun-Douala</p>
+                <p className='text-white mb-0 text-xs'> Cameroun-Douala</p>
                 <p className='text-white mb-0  text-xs'>France-Paris</p>
               </div>
             </div>
@@ -150,6 +168,8 @@ const Contact = () => {
                 type='text'
                 required
                 name='from_name'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder='Enter Your Name'
                 className='w-full text-xs px-3 h-8 my-2 outline-none rounded-md border focus:shadow-sm'
               />
@@ -158,21 +178,28 @@ const Contact = () => {
                 type='email'
                 required
                 name='from_email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder='Enter Your Email'
                 className='w-full text-xs px-3 h-8 my-2 outline-none rounded-md border focus:shadow-sm'
               />
               <br />
               <input
-                type='text'
+                type='phone'
                 required
                 name='from_number'
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
                 placeholder='Enter Your phone number'
                 className='w-full text-xs px-3 h-8 my-2 outline-none rounded-md border focus:shadow-sm'
               />
               <br />
               <textarea
+                type='text'
                 name='message'
                 required
+                value={text}
+                onChange={(e) => setText(e.target.value)}
                 placeholder='Entrez votre message ici'
                 className='w-full text-xs px-3 py-2 h-20 my-2 outline-none rounded-md border focus:shadow-sm resize-none'></textarea>
               <br />

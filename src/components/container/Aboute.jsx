@@ -18,7 +18,7 @@ const Aboute = () => {
               Votre Partenaire de choix pour les formations
             </div>
             <p className='text-sm text-gray leading-7 mb-4'>
-              QHSE Académie en Consulting est votre partenaire idéal pour
+              QHSE ACADEMIE AND CONSULTING est votre partenaire idéal pour
               améliorer vos capacités et vos compétences. Nous offrons une gamme
               complète de formations en ligne et en présentiel, accessibles à
               tous ceux qui cherchent à améliorer leur performance. Que vous

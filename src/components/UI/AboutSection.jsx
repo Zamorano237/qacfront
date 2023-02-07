@@ -1,7 +1,6 @@
 /** @format */
 
 import React from 'react';
-import { Typewriter, Cursor } from 'react-simple-typewriter';
 import { Container, Row, Col } from 'reactstrap';
 import '../../styles/about-section.css';
 import aboutImg from '../../assets/profile1.png';
@@ -42,19 +41,9 @@ const AboutSection = ({ aboutClass }) => {
                   les entreprises à atteindre leurs objectifs QHSE à travers une
                   formation de qualité et un accompagnement sur mesure.{' '}
                   <span style={{ color: 'red', fontWeight: '500' }}>
-                    <Typewriter
-                      words={[
-                        'Nous sommes dévoués à fournir des services de haute qualité pour garantir la satisfaction de nos clients.',
-                        'Nous mettons à votre service des professionels et experts afin de vous apporter satisfaction.',
-                        'La Qualité des services et le respect des délais de prestaions sont au coeur de nos préoccupations.',
-                      ]}
-                      loop={0}
-                      typeSpeed={50}
-                      deleteSpeed={20}
-                      delaySpeed={1000}
-                    />
-                  </span>{' '}
-                  <Cursor cursorStyle='' />
+                    Nous sommes dévoués à fournir des services de haute qualité
+                    pour garantir la satisfaction de nos clients.
+                  </span>
                 </span>
                 <div className='about__section-item d-flex align-items-center'>
                   <p className='section__description d-flex align-items-center gap-2'>

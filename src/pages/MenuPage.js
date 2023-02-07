@@ -14,12 +14,19 @@ import { motion } from 'framer-motion';
 import { GrYoutube } from 'react-icons/gr';
 import PayButton from '../components/PayButton';
 import Skeleton from '@mui/material/Skeleton';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
 
 const MenuPage = () => {
   const productItem = useSelector((state) => state.productItem.productItem);
   const productLoading = useSelector(
     (state) => state.productItem.productLoading
   );
+  function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb.');
+  }
+
   const dispatch = useDispatch();
   const params = useParams();
   let content;
@@ -42,7 +49,6 @@ const MenuPage = () => {
       []
     )[0];
 
-    console.log(data);
     const cartItems = [];
     cartItems.push(data);
 
@@ -54,7 +60,24 @@ const MenuPage = () => {
     content = (
       <>
         <div className='h-full mt-[65px]'>
-          <div className='w-full  p-4 max-w-[90%] m-auto h-auto flex flex-col sm:flex-row'>
+          <div
+            role='presentation'
+            onClick={handleClick}
+            className='mt-0 ml-[45px]  lg:hidden  block '>
+            <Breadcrumbs aria-label='breadcrumb'>
+              <Link
+                to={'/blogs'}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                Boutique
+              </Link>
+              <Link
+                to={'/blogs'}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                {data.category}
+              </Link>
+            </Breadcrumbs>
+          </div>
+          <div className='w-full  p-3 lg:pt-8  max-w-[90%] m-auto h-auto flex flex-col sm:flex-row'>
             <div className='flex-col'>
               <div className='group w-full md:min-w-450 md:w-[640px] md:p-9 bg-slate-100 cursor-pointer'>
                 <img
