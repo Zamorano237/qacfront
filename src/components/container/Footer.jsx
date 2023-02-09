@@ -52,7 +52,7 @@ function Footer() {
           <h1 className=' text-gray-800 font-semibold text-[12px]'>
             © 2022-2023 All rights reserved | Build with ❤ by{' '}
             <span className='hover:text-blue-600 font-semibold cursor-pointer'>
-              WATBO Yvan{' '}
+              QHSE ACADEMIE{' '}
             </span>
           </h1>
         </div>
